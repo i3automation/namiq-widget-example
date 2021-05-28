@@ -62,3 +62,11 @@ Use to embed NamiQ chat widget to your web site.
 | showChat            | None   | Show Chat widget programmatic.                            |
 | setProductId        | id     | Update Product ID value.                                  |
 | openBanner          | html   | Open widget banner by provide a HTML string or plaintext. |
+| sendCustomEvent     | func   | Send an custom Event to chat widget.                      |
+| onWidgetEvent       | func   | Widget event Callback function.                           |
+
+onWidgetEvent = function (eventName: string, payload: any) {
+// TODO: Implement you logic
+}
+
+sendCustomEvent(eventName: string, payload: any)
