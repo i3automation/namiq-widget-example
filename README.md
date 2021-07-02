@@ -20,15 +20,20 @@ Use to embed NamiQ chat widget to your web site.
 2.  **Usage**
 
 - Insert to HTML
+
   ```html
   <div id="chat-widget"></div>
   ```
+
 - Init widget
+
   ```javascript
+
   WebChat.default.init({
     selector: '#chat-widget',
     socketUrl: '<YOUR_SOCKET_URL>',
   } as any);
+
   ```
 
 3.  **Options**
@@ -51,6 +56,15 @@ Use to embed NamiQ chat widget to your web site.
 | userBackgroundColor         | #6F54FF        | Background of message from user                    |
 | assistTextColor             | #0D0054        | Color of message from bot or agent                 |
 | assistBackgroundColor       | #EDEAFF        | Background of message from bot or agent            |
+| onWidgetEvent               | func           | Widget event Callback function.                    |
+
+- onWidgetEvent callback function
+
+```javascript
+onWidgetEvent = function (eventName: string, payload: any) {
+  // TODO: Implement you logic
+};
+```
 
 | Method              | Params | Description                                               |
 | ------------------- | ------ | --------------------------------------------------------- |
@@ -63,10 +77,14 @@ Use to embed NamiQ chat widget to your web site.
 | setProductId        | id     | Update Product ID value.                                  |
 | openBanner          | html   | Open widget banner by provide a HTML string or plaintext. |
 | sendCustomEvent     | func   | Send an custom Event to chat widget.                      |
-| onWidgetEvent       | func   | Widget event Callback function.                           |
+| setConsumer         | Object | Update consumer data                                      |
+| updateCartInfo      | string | Update created cart id.                                   |
 
-onWidgetEvent = function (eventName: string, payload: any) {
-// TODO: Implement you logic
+- setConsumer parameters
+
+```json
+{
+  "provider": "string",
+  "profile": "Object"
 }
-
-sendCustomEvent(eventName: string, payload: any)
+```

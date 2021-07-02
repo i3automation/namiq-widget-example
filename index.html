@@ -9,25 +9,30 @@
   <body>
     <div id="chat-widget"></div>
     <script
-      src="namiq-widget-polyfills-0.0.1.js"
+      src="https://d3be44pyeudmas.cloudfront.net/namiq-widget-polyfills-0.0.1.js"
       type="text/javascript"
     ></script>
-    <script src="namiq-widget-0.0.1.js" type="text/javascript"></script>
+    <script
+      src="https://d3be44pyeudmas.cloudfront.net/namiq-widget-0.0.1.js"
+      type="text/javascript"
+    ></script>
   </body>
   <script>
     WebChat.default.init({
+      initPayload: "/greet",
       selector: "#chat-widget",
-      socketUrl: "https://skm-sandbox.namiq.io/1.0.0/namiQ/chat",
+      socketUrl: "https://dev-api.namiq.io/1.0.0/namiQ/chat",
       language: "vi",
+      hideWhenNotConnected: false,
       showCloseButton: true,
       showFullScreenButton: true,
-      mainColor: "#3596f0",
-      userTextColor: "#fff",
-      userBackgroundColor: "#3596f0",
-      assistTextColor: "#0065c3",
-      assistBackgroundColor: "#c6e3ff",
-      conversationBackgroundColor: "#000",
+      mainColor: "#dd5161",
+      disableTooltips: false,
       apiKey: "TL7u0Qgp2GLA1aW4vQe1Q2XXlxVnYSKY",
+      openLauncherImage: "assets/Chat trigger.svg",
+      closeImage: "./Chat trigger.svg",
+      displayUnreadCount: true,
+      onWidgetEvent: function (params) {},
     });
   </script>
 </html>
