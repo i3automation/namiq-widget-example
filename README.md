@@ -112,3 +112,14 @@ WebChat.default.sendCustomEvent({
   payload: "XXXXXXX-XXXXXXX",
 });
 ```
+
+Name: cart-created-failed
+Payload: None
+Ex:
+
+```js
+WebChat.default.sendCustomEvent({
+  name: "cart-created",
+  payload: null,
+});
+```
