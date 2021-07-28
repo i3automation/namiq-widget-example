@@ -87,9 +87,9 @@ onWidgetEvent = function (eventName: string, payload: any) {
 | showChat            | None   | Show Chat widget programmatic.                            |
 | setProductId        | id     | Update Product ID value.                                  |
 | openBanner          | html   | Open widget banner by provide a HTML string or plaintext. |
-| sendCustomEvent     | func   | Send an custom Event to chat widget.                      |
 | setConsumer         | Object | Update consumer data                                      |
-| updateCartInfo      | string | Update created cart id.                                   |
+| sendCustomEvent     | Object | Send an event with payload to widget.                     |
+| isCartExist         | None   | Check cart is existed or not.                             |
 
 - setConsumer parameters
 
@@ -98,4 +98,17 @@ onWidgetEvent = function (eventName: string, payload: any) {
   "provider": "string",
   "profile": "Object"
 }
+```
+
+### sendCustomEvent list
+
+Name: cart-created
+Payload: cart id as string
+Ex:
+
+```js
+WebChat.default.sendCustomEvent({
+  name: "cart-created",
+  payload: "XXXXXXX-XXXXXXX",
+});
 ```

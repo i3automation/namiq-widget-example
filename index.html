@@ -26,7 +26,6 @@
   </body>
   <script>
     WebChat.default.init({
-      initPayload: "/greet",
       selector: "#chat-widget",
       socketUrl: "https://skm-sandbox.namiq.io/1.0.0/namiQ/chat",
       language: "vi",
@@ -61,8 +60,13 @@
             data[input.name] = input.value;
           }
         }
-        console.log(data);
-        WebChat.default.updateCartInfo(data["cart-id"]);
+        console.log(WebChat.default.isCartExist());
+        if (!WebChat.default.isCartExist()) {
+          WebChat.default.sendCustomEvent({
+            name: "cart-created",
+            payload: data["cart-id"],
+          });
+        }
       });
     });
   </script>
