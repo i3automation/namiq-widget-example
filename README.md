@@ -72,8 +72,8 @@ onWidgetEvent = function (eventName: string, payload: any) {
 | ----------------- | ------- | --------------------------------------------------------- | ------------------------------------ |
 | initialized       | string  | Chat widget initialize success. And return conversion id. | 1baf83d2-8e1a-48de-9a30-0ca79afbb419 |
 | add_to_cart       | object  | Request add item to cart.                                 | { "id": 2810, "quantity": 2 }        |
-| increase-quantity | string  | Request increase quantity of an item in cart.             | 2807                                 |
-| decrease-quantity | string  | Request decrease quantity of an item in cart.             | 2807                                 |
+| update-quantity   | object  | Request update quantity of an item in cart.               | { "sku": 2810, "quantity": 2 }       |
+| remove-item       | string  | Request remove an item in cart.                           | 2807                                 |
 
 ### Method list
 
