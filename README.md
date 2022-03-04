@@ -2,22 +2,35 @@
 
 Use to embed NamiQ chat widget to your web site.
 
-1.  **Installation**
+1. **Installation**
+In your `<body/>`:
 
-        ```html
-        <script
-          src="namiq-widget-polyfills-0.0.1.js"
-          type="text/javascript"
-        ></script>
-        <script src="namiq-widget-0.0.1.js" type="text/javascript"></script>
-        ```
+```html
+<script>
+      !(function () {
+        let e = document.createElement("script"),
+          t = document.head || document.getElementsByTagName("head")[0];
+        (e.src = "https://d30y08pk6dssu7.cloudfront.net/namiq-widget-0.0.1.js"),
+          (e.async = !0),
+          (e.onload = () => {
+            WebChat.default.init({
+              selector: "#chat-widget",
+              socketUrl: "<YOUR_SOCKET_URL>",
+              onWidgetEvent: function (event, payload) {
+                console.log(event, payload);
+              },
+            });
+          }),
+          t.insertBefore(e, t.firstChild);
+      })();
+    </script>        
+```
 
     | Props/params                    | Description                            |
     | ------------------------------- | -------------------------------------- |
-    | namiq-widget-polyfills-0.0.1.js | Polyfill to support to older browsers. |
     | namiq-widget-0.0.1.js           | NamiQ Chat widget Library              |
 
-2.  **Usage**
+2. **Usage**
 
 - Insert to HTML
 
@@ -36,7 +49,7 @@ Use to embed NamiQ chat widget to your web site.
 
   ```
 
-3.  **Options**
+3. **Options**
 
 | Props/params                | Default value  | Description                                        |
 | --------------------------- | -------------- | -------------------------------------------------- |
