@@ -45,18 +45,9 @@
             e.onload = function () {
               window.WebChat.default.init({
                 selector: "#chat-widget",
-                socketUrl: "https://skm.namiq.io/ws/chat",
+                socketUrl: "<SOCKET_URL>",
                 language: "vi",
-                hideWhenNotConnected: false,
-                showCloseButton: true,
-                showFullScreenButton: true,
-                mainColor: "#eb0d8a",
-                disableTooltips: false,
-                subtitle: "A Sense of Shopping Style",
-                apiKey: "TL7u0Qgp2GLA1aW4vQe1Q2XXlxVnYSKY",
-                openLauncherImage: "./Chat_widget_icon.png",
-                closeImage: "./Chat_widget_icon.png",
-                displayUnreadCount: true,
+                apiKey: "<API_KEY>",
                 onWidgetEvent: function (event, payload) {
                   console.log(event, payload);
                 },
