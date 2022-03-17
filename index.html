@@ -14,34 +14,58 @@
       <input id="yourCartId" name="cart-id" value="" />
       <input type="submit" value="Send!" />
     </form>
+
     <script>
-      !(function () {
-        let e = document.createElement("script"),
-          t = document.head || document.getElementsByTagName("head")[0];
-        (e.src = "https://d30y08pk6dssu7.cloudfront.net/namiq-widget-0.0.1.js"),
-          (e.async = !0),
-          (e.onload = () => {
-            WebChat.default.init({
-              selector: "#chat-widget",
-              socketUrl: "https://skm-sandbox.namiq.io/1.0.0/namiQ/chat",
-              language: "vi",
-              hideWhenNotConnected: false,
-              showCloseButton: true,
-              showFullScreenButton: true,
-              mainColor: "#eb0d8a",
-              disableTooltips: false,
-              subtitle: "A Sense of Shopping Style",
-              apiKey: "TL7u0Qgp2GLA1aW4vQe1Q2XXlxVnYSKY",
-              openLauncherImage: "./Chat_widget_icon.png",
-              closeImage: "./Chat_widget_icon.png",
-              displayUnreadCount: true,
-              onWidgetEvent: function (event, payload) {
-                console.log(event, payload);
-              },
-            });
-          }),
-          t.insertBefore(e, t.firstChild);
-      })();
+      function addLoadEvent(e) {
+        if (document.readyState === "complete") {
+          e();
+        } else {
+          var t = window.onload;
+          if (typeof window.onload != "function") {
+            window.onload = e;
+          } else {
+            window.onload = function () {
+              if (t) {
+                t();
+              }
+              e();
+            };
+          }
+        }
+      }
+
+      addLoadEvent(function () {
+        setTimeout(function () {
+          (function () {
+            var e = document.createElement("script"),
+              t = document.head || document.getElementsByTagName("head")[0];
+            e.src =
+              "https://d30y08pk6dssu7.cloudfront.net/namiq-widget-0.0.2.js";
+            e.async = !0;
+            e.onload = function () {
+              window.WebChat.default.init({
+                selector: "#chat-widget",
+                socketUrl: "https://skm-sandbox.namiq.io/1.0.0/namiQ/chat",
+                language: "vi",
+                hideWhenNotConnected: false,
+                showCloseButton: true,
+                showFullScreenButton: true,
+                mainColor: "#eb0d8a",
+                disableTooltips: false,
+                subtitle: "A Sense of Shopping Style",
+                apiKey: "TL7u0Qgp2GLA1aW4vQe1Q2XXlxVnYSKY",
+                openLauncherImage: "./Chat_widget_icon.png",
+                closeImage: "./Chat_widget_icon.png",
+                displayUnreadCount: true,
+                onWidgetEvent: function (event, payload) {
+                  console.log(event, payload);
+                },
+              });
+            };
+            t.insertBefore(e, t.firstChild);
+          })();
+        }, 3000);
+      });
     </script>
   </body>
 
