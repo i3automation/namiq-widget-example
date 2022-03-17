@@ -7,23 +7,48 @@ In your `<body/>`:
 
 ```html
 <script>
-      !(function () {
-        let e = document.createElement("script"),
-          t = document.head || document.getElementsByTagName("head")[0];
-        (e.src = "https://d30y08pk6dssu7.cloudfront.net/namiq-widget-0.0.1.js"),
-          (e.async = !0),
-          (e.onload = () => {
-            WebChat.default.init({
-              selector: "#chat-widget",
-              socketUrl: "<YOUR_SOCKET_URL>",
-              onWidgetEvent: function (event, payload) {
-                console.log(event, payload);
-              },
-            });
-          }),
-          t.insertBefore(e, t.firstChild);
-      })();
-    </script>        
+      function addLoadEvent(e) {
+        if (document.readyState === "complete") {
+          e();
+        } else {
+          var t = window.onload;
+          if (typeof window.onload != "function") {
+            window.onload = e;
+          } else {
+            window.onload = function () {
+              if (t) {
+                t();
+              }
+              e();
+            };
+          }
+        }
+      }
+
+      addLoadEvent(function () {
+        setTimeout(function () {
+          (function () {
+            var e = document.createElement("script"),
+              t = document.head || document.getElementsByTagName("head")[0];
+            e.src =
+              "https://d30y08pk6dssu7.cloudfront.net/namiq-widget-0.0.2.js";
+            e.async = !0;
+            e.onload = function () {
+              window.WebChat.default.init({
+                selector: "#chat-widget",
+                socketUrl: "<SOCKET_URL>",
+                language: "vi",
+                apiKey: "<API_KEY>",
+                onWidgetEvent: function (event, payload) {
+                  console.log(event, payload);
+                },
+              });
+            };
+            t.insertBefore(e, t.firstChild);
+          })();
+        }, 3000);
+      });
+    </script>    
 ```
 
     | Props/params                    | Description                            |
